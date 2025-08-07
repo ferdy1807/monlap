@@ -1,1 +1,32 @@
-*node_modules
+# Binaries & build output
+/main
+*.exe
+*.out
+*.test
+*.log
+
+# Uploaded files (misalnya: foto pegawai)
+uploads/
+
+# Environment files
+.env
+
+# Dependency directories (jika nanti pakai Node/Svelte frontend)
+node_modules/
+dist/
+build/
+
+# IDE/editor configs
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Docker artifacts (optional)
+*.pid
+*.tar
+
+# Go modules cache (just in case)
+vendor/
