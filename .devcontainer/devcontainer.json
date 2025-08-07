@@ -1,0 +1,18 @@
+{
+  "name": "Monlap Backend",
+  "dockerFile": "go.dockerfile",
+  "context": "..",
+  "runArgs": ["--env-file", ".env"],
+  "appPort": [3000],
+  "forwardPorts": [3000],
+  "postCreateCommand": "go mod tidy",
+  "customizations": {
+    "vscode": {
+      "settings": {},
+      "extensions": [
+        "golang.Go",
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  }
+}
