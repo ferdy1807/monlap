@@ -1,0 +1,22 @@
+app.Get("/pegawai", func(c *fiber.Ctx) error {
+    rows, err := db.Query("SELECT id, nama, posisi, role FROM pegawai")
+    if err != nil {
+        return c.Status(500).SendString("Query error: " + err.Error())
+    }
+    defer rows.Close()
+
+    var result []map[string]interface{}
+
+    for rows.Next() {
+        var id int
+        var nama, posisi, role string
+        if err := rows.Scan(&id, &nama, &posisi, &role); err != nil {
+            return c.Status(500).SendString("Scan error: " + err.Error())
+        }
+        result = append(result, map[string]interface{}{
+            "id": id, "nama": nama, "posisi": posisi, "role": role,
+        })
+    }
+
+    return c.JSON(result)
+})
